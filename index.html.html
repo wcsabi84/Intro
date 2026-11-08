@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8fafc">
+
+  <title>Csaba`s Personal Page</title>
+
+  <style>
+    :root {
+      --background: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: var(--background);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+      padding: 36px 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.5rem, 8vw, 3.75rem);
+      font-weight: 750;
+      letter-spacing: -0.05em;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 30px 0;
+      background: var(--border);
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .description {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    footer {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    time {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    @media (min-width: 600px) {
+      .card {
+        padding: 48px;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .card {
+        animation: fadeIn 0.6s ease-out both;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <span class="label">Welcome to my page</span>
+
+    <!-- Replace "Csaba" with your actual first name -->
+    <h1>Hi, I'm Csaba.</h1>
+
+    <p class="subtitle">
+      Certificate student, National College of Ireland
+    </p>
+
+    <div class="divider"></div>
+
+    <section aria-labelledby="interest-heading">
+      <h2 class="section-title" id="interest-heading">
+        I am interested about books, history, joga and running.
+      </h2>
+
+      <!-- Edit this sentence to reflect your own interest -->
+      <p class="description">
+        I am interested about books, history, joga and running.
+
+      </p>
+    </section>
+
+    <footer>
+      Today is
+      <time id="today"></time>
+    </footer>
+
+  </main>
+
+  <script>
+    // Display today's date using the visitor's local time zone.
+    function updateDate() {
+      const now = new Date();
+
+      const formattedDate = new Intl.DateTimeFormat("en-IE", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }).format(now);
+
+      const dateElement = document.getElementById("today");
+
+      dateElement.textContent = formattedDate;
+
+      // Machine-readable date for accessibility and semantics.
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, "0");
+      const day = String(now.getDate()).padStart(2, "0");
+
+      dateElement.setAttribute(
+        "datetime",
+        `${year}-${month}-${day}`
+      );
+    }
+
+    updateDate();
+
+    // Refresh the date periodically if the page stays open.
+    setInterval(updateDate, 60000);
+  </script>
+
+</body>
+</html>
