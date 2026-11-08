@@ -1,201 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8fafc">
-
-  <title>Csaba`s Personal Page</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080c1b" />
+  <meta name="description" content="Csaba — based in Kildare, Ireland. Risk management, Copilot and ESG projects." />
+  <title>Csaba | Personal Page</title>
   <style>
-    :root {
-      --background: #f8fafc;
-      --surface: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --accent: #2563eb;
-      --border: #e2e8f0;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: var(--background);
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                   "Segoe UI", sans-serif;
-      line-height: 1.6;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 520px;
-      padding: 36px 28px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
-    }
-
-    .label {
-      display: inline-block;
-      margin-bottom: 20px;
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2.5rem, 8vw, 3.75rem);
-      font-weight: 750;
-      letter-spacing: -0.05em;
-      line-height: 1.1;
-    }
-
-    .subtitle {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .divider {
-      height: 1px;
-      margin: 30px 0;
-      background: var(--border);
-    }
-
-    .section-title {
-      margin: 0 0 10px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .description {
-      margin: 0;
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    footer {
-      margin-top: 36px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    time {
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    @media (min-width: 600px) {
-      .card {
-        padding: 48px;
-      }
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .card {
-        animation: fadeIn 0.6s ease-out both;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(12px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    }
+    :root { --bg:#080c1b; --surface:#111a30; --text:#eff6ff; --muted:#a3b4cf; --cyan:#62e9ff; --purple:#b18cff; --border:rgba(160,194,255,.15); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.65; overflow-x:hidden; }
+    body::before { content:""; position:fixed; inset:0; z-index:-2; background:radial-gradient(ellipse at 85% 12%,rgba(100,73,225,.2),transparent 38%),radial-gradient(ellipse at 10% 40%,rgba(17,173,206,.12),transparent 37%); pointer-events:none; }
+    body::after { content:""; position:fixed; inset:0; z-index:-1; background-image:linear-gradient(rgba(144,173,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(144,173,255,.035) 1px,transparent 1px); background-size:44px 44px; mask-image:linear-gradient(to bottom,black,transparent 88%); pointer-events:none; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:2px solid var(--cyan); outline-offset:4px; border-radius:5px; }
+    .wrap { width:min(1100px,calc(100% - 40px)); margin:auto; }
+    header { position:sticky; top:0; z-index:5; background:rgba(8,12,27,.8); border-bottom:1px solid var(--border); backdrop-filter:blur(16px); }
+    nav { display:flex; justify-content:space-between; align-items:center; gap:20px; min-height:74px; }
+    .logo { font-size:1.15rem; font-weight:800; letter-spacing:.05em; }
+    .logo span,.gradient { color:var(--cyan); }
+    .navlinks { display:flex; gap:25px; color:var(--muted); font-size:.93rem; }
+    .navlinks a:hover { color:var(--cyan); }
+    .hero { min-height:620px; display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:center; padding:94px 0 115px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; padding:8px 13px; border:1px solid rgba(98,233,255,.35); background:rgba(98,233,255,.07); border-radius:50px; color:var(--cyan); font-weight:650; font-size:.82rem; }
+    .dot { width:7px; height:7px; background:var(--cyan); box-shadow:0 0 12px var(--cyan); border-radius:50%; }
+    h1 { font-size:clamp(3rem,7vw,5.8rem); line-height:1.07; letter-spacing:-.055em; margin:20px 0 22px; }
+    h1 .gradient { background:linear-gradient(100deg,var(--cyan),var(--purple)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .lead { max-width:580px; font-size:1.12rem; color:var(--muted); margin-bottom:30px; }
+    .actions { display:flex; flex-wrap:wrap; gap:14px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:47px; padding:11px 22px; border-radius:10px; font-weight:700; transition:transform .2s,box-shadow .2s; }
+    .btn:hover { transform:translateY(-3px); }
+    .primary { color:#071322; background:linear-gradient(110deg,var(--cyan),#a8b5ff); box-shadow:0 10px 35px rgba(67,202,249,.18); }
+    .secondary { border:1px solid var(--border); background:rgba(255,255,255,.035); }
+    .orb-wrap { display:grid; place-items:center; min-height:330px; }
+    .orb { width:min(300px,80vw); aspect-ratio:1; border-radius:50%; position:relative; display:grid; place-items:center; background:radial-gradient(circle at 35% 25%,rgba(130,216,255,.28),rgba(68,48,165,.19) 45%,rgba(13,22,55,.55) 70%); border:1px solid rgba(156,216,255,.4); box-shadow:0 0 80px rgba(91,74,237,.28), inset 0 0 60px rgba(108,152,255,.16); animation:float 6s ease-in-out infinite; }
+    .orb::before,.orb::after { content:""; position:absolute; inset:-16px; border:1px solid rgba(110,215,255,.3); border-radius:50%; transform:rotateX(65deg) rotate(-25deg); }
+    .orb::after { inset:-35px; border-color:rgba(177,140,255,.19); transform:rotateY(65deg) rotate(35deg); }
+    .orb-text { font-size:clamp(4.5rem,11vw,7rem); font-weight:900; letter-spacing:-.08em; background:linear-gradient(130deg,#fff,var(--cyan),var(--purple)); background-clip:text; -webkit-background-clip:text; color:transparent; text-shadow:0 0 45px rgba(120,196,255,.14); }
+    section { padding:50px 0 70px; scroll-margin-top:90px; }
+    .section-head { margin-bottom:24px; }
+    .kicker { color:var(--cyan); font-size:.8rem; letter-spacing:.16em; font-weight:800; text-transform:uppercase; }
+    h2 { font-size:clamp(1.8rem,4vw,2.6rem); letter-spacing:-.04em; margin:5px 0 10px; }
+    .section-head p,.card p { color:var(--muted); }
+    .cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .card { background:linear-gradient(145deg,rgba(21,32,59,.9),rgba(13,19,38,.92)); border:1px solid var(--border); border-radius:18px; padding:27px; transition:transform .2s,border-color .2s; }
+    .card:hover { transform:translateY(-5px); border-color:rgba(98,233,255,.55); }
+    .card .icon { width:46px; height:46px; border-radius:12px; display:grid; place-items:center; background:rgba(98,233,255,.1); font-size:1.5rem; margin-bottom:16px; }
+    h3 { margin:0 0 9px; font-size:1.15rem; }
+    .card p { margin:0; font-size:.95rem; }
+    .tag { display:inline-block; margin-top:18px; font-size:.77rem; color:var(--cyan); border:1px solid rgba(98,233,255,.26); padding:4px 10px; border-radius:50px; }
+    .skills { display:flex; flex-wrap:wrap; gap:12px; }
+    .skill { border:1px solid rgba(98,233,255,.28); border-radius:12px; padding:13px 18px; background:rgba(98,233,255,.055); color:#dceeff; font-weight:650; }
+    .location { color:var(--cyan); font-size:.92rem; font-weight:700; margin:0 0 14px; }
+    .reveal-ready .reveal { opacity:0; transform:translateY(16px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal-ready .reveal.visible { opacity:1; transform:none; }
+    .about { display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:center; }
+    .about p { color:var(--muted); max-width:530px; }
+    .terminal { overflow:hidden; border:1px solid var(--border); border-radius:15px; background:#0a1022; box-shadow:0 15px 50px rgba(0,0,0,.2); }
+    .terminal-top { display:flex; align-items:center; gap:6px; padding:13px 16px; border-bottom:1px solid var(--border); background:#131c33; }
+    .terminal-top i { width:10px; height:10px; border-radius:50%; background:#ff6b78; }
+    .terminal-top i:nth-child(2) { background:#ffcd64; }
+    .terminal-top i:nth-child(3) { background:#70db91; }
+    .terminal pre { margin:0; padding:23px; font: .92rem/1.9 ui-monospace,SFMono-Regular,Consolas,monospace; color:#c0d3ff; white-space:pre-wrap; }
+    .terminal strong { color:var(--cyan); }
+    .contact { text-align:center; padding:40px 25px; border:1px solid rgba(98,233,255,.23); border-radius:22px; background:linear-gradient(130deg,rgba(34,54,92,.6),rgba(47,23,77,.34)); }
+    .contact p { color:var(--muted); max-width:540px; margin:0 auto 24px; }
+    footer { margin-top:50px; border-top:1px solid var(--border); color:var(--muted); font-size:.88rem; padding:27px 0; }
+    footer .wrap { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-16px); } }
+    @media(max-width:760px) { .hero { grid-template-columns:1fr; padding:70px 0 75px; gap:15px; } .orb-wrap { min-height:280px; } .orb { width:220px; } .cards,.about { grid-template-columns:1fr; } .navlinks { gap:13px; font-size:.82rem; } .card { padding:22px; } }
+    @media(max-width:420px) { .navlinks { gap:10px; font-size:.76rem; } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; scroll-behavior:auto!important; transition:none!important; } .reveal-ready .reveal { opacity:1; transform:none; } }
   </style>
 </head>
-
 <body>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="logo" href="#home">&lt;Csaba<span>/</span>&gt;</a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap">
+      <div class="hero" id="home">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Based in Kildare, Ireland</div>
+          <h1>Hi, I'm <span class="gradient">Csaba.</span><br>Ideas into impact.</h1>
+          <p class="lead">Interested in risk management, responsible innovation, Microsoft Copilot and ESG. I explore how technology and thoughtful decision-making can create real-world value.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore my projects →</a>
+            <a class="btn secondary" href="https://github.com/wcsabi84" target="_blank" rel="noopener noreferrer">My GitHub ↗</a>
+          </div>
+        </div>
+        <div class="orb-wrap" aria-hidden="true"><div class="orb"><span class="orb-text">CS</span></div></div>
+      </div>
+      <section id="about" class="reveal">
+        <div class="about">
+          <div>
+            <div class="kicker">01 / About me</div>
+            <h2>Thinking ahead.<br>Building responsibly.</h2>
+            <p class="location">📍 Kildare, Ireland</p>
+            <p>Hi, I'm Csaba. My interests span risk management, emerging workplace technology and environmental, social and governance (ESG) topics.</p>
+            <p>This site brings together my interests, projects and ongoing learning — including building this portfolio with HTML, CSS and GitHub Pages.</p>
+          </div>
+          <div class="terminal" aria-label="About me terminal-style panel">
+            <div class="terminal-top"><i></i><i></i><i></i></div>
+            <pre><strong>csaba@portfolio</strong>:~$ whoami
+Name: Csaba
+Location: Kildare, Ireland
+Focus: Risk management + ESG
+Projects: Copilot + ESG
+Status: Exploring new ideas ✨
 
-  <main class="card">
-
-    <span class="label">Welcome to my page</span>
-
-    <!-- Replace "Csaba" with your actual first name -->
-    <h1>Hi, I'm Csaba.</h1>
-
-    <p class="subtitle">
-      Certificate student, National College of Ireland
-    </p>
-
-    <div class="divider"></div>
-
-    <section aria-labelledby="interest-heading">
-      <h2 class="section-title" id="interest-heading">
-        I am interested about books, history, joga and running.
-      </h2>
-
-      <!-- Edit this sentence to reflect your own interest -->
-      <p class="description">
-        I am interested about books, history, joga and running.
-
-      </p>
-    </section>
-
-    <footer>
-      Today is
-      <time id="today"></time>
-    </footer>
-
+<strong>csaba@portfolio</strong>:~$ _</pre>
+          </div>
+        </div>
+      </section>
+      <section id="skills" class="reveal">
+        <div class="section-head">
+          <div class="kicker">02 / Skills &amp; interests</div>
+          <h2>What I focus on</h2>
+          <p>Areas I care about and continue to develop.</p>
+        </div>
+        <div class="skills" aria-label="Skills and interests">
+          <span class="skill">Risk management</span>
+          <span class="skill">Risk assessment</span>
+          <span class="skill">Microsoft Copilot</span>
+          <span class="skill">ESG</span>
+          <span class="skill">Responsible innovation</span>
+          <span class="skill">HTML &amp; CSS — learning</span>
+        </div>
+      </section>
+      <section id="projects" class="reveal">
+        <div class="section-head">
+          <div class="kicker">03 / Projects</div>
+          <h2>Projects &amp; explorations</h2>
+          <p>Themes and projects I’m exploring. More details can be added as these evolve.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="icon" aria-hidden="true">🤖</div><h3>Copilot projects</h3><p>Exploring practical ways to use Microsoft Copilot in everyday workflows, productivity and decision support.</p><span class="tag">AI &amp; productivity</span></article>
+          <article class="card"><div class="icon" aria-hidden="true">🌱</div><h3>ESG projects</h3><p>Exploring environmental, social and governance themes, with an interest in responsible business and long-term impact.</p><span class="tag">Sustainability &amp; governance</span></article>
+          <article class="card"><div class="icon" aria-hidden="true">🌐</div><h3>Personal website</h3><p>Designing and publishing this website using HTML, CSS and GitHub Pages — and improving it along the way.</p><span class="tag">Web development</span></article>
+        </div>
+      </section>
+      <section id="contact" class="reveal">
+        <div class="contact">
+          <div class="kicker">04 / Connect</div>
+          <h2>Let's stay connected.</h2>
+          <p>Interested in connecting about risk management, Copilot or ESG? Send me an email or visit my GitHub.</p>
+          <div class="actions" style="justify-content:center">
+            <a class="btn primary" href="mailto:wcsabi84@gmail.com?subject=Hello%20Csaba">✉ Email me</a>
+            <a class="btn secondary" href="https://github.com/wcsabi84" target="_blank" rel="noopener noreferrer">Visit my GitHub ↗</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
-
+  <footer><div class="wrap"><span>© <span id="year">2026</span> Csaba. Made with curiosity.</span><span>Designed with HTML &amp; CSS ✦</span></div></footer>
   <script>
-    // Display today's date using the visitor's local time zone.
-    function updateDate() {
-      const now = new Date();
-
-      const formattedDate = new Intl.DateTimeFormat("en-IE", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      }).format(now);
-
-      const dateElement = document.getElementById("today");
-
-      dateElement.textContent = formattedDate;
-
-      // Machine-readable date for accessibility and semantics.
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, "0");
-      const day = String(now.getDate()).padStart(2, "0");
-
-      dateElement.setAttribute(
-        "datetime",
-        `${year}-${month}-${day}`
-      );
+    document.getElementById('year').textContent = new Date().getFullYear();
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('reveal-ready');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(section => observer.observe(section));
     }
-
-    updateDate();
-
-    // Refresh the date periodically if the page stays open.
-    setInterval(updateDate, 60000);
   </script>
-
 </body>
 </html>
